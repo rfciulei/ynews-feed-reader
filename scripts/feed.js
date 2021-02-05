@@ -14,7 +14,7 @@ fetch(
   .then((response) => response.json())
   .then((items) => {
     let requests = items
-      .splice(1, 100)
+      .splice(0, 100)
       .map((item) =>
         fetch(
           `https://hacker-news.firebaseio.com/v0/item/${item}.json?print=pretty`
@@ -34,7 +34,9 @@ fetch(
       );
   });
 
-var scrolling = true;
+/*
+//stop scrolling when dev-mode
+var scrolling = false;
 window.setInterval(scroll_, 60);
 function scroll_() {
   if (scrolling) {
@@ -50,17 +52,7 @@ $("#titles").hover(
     scrolling = true;
   }
 );
-
-// function isInViewport(element) {
-//   const rect = element.getBoundingClientRect();
-//   return (
-//     rect.top >= 0 &&
-//     rect.left >= 0 &&
-//     rect.bottom <=
-//       (window.innerHeight || document.documentElement.clientHeight) &&
-//     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-//   );
-// }
+*/
 
 // create the mute button
 $("body").prepend('<a onclick="muteSound()" class="mute">Back to Top</a>');
@@ -73,11 +65,19 @@ $(window).scroll(function () {
 
 // let sentences = $("p").find("span");
 
-// confirmBox("Do you want to hear the news ?", function (callback) {
-//   if (callback) {
-//   }
-// });
+// function isInViewport(element) {
+//   const rect = element.getBoundingClientRect();
+//   return (
+//     rect.top >= 0 &&
+//     rect.left >= 0 &&
+//     rect.bottom <=
+//       (window.innerHeight || document.documentElement.clientHeight) &&
+//     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+//   );
+// }
 
+////// SPEECH
+/*
 if (readText === true) {
   let sentences = ["Hello my friend", "How are you doing today ? "];
 
@@ -104,3 +104,4 @@ if (readText === true) {
     }
   })();
 }
+*/
